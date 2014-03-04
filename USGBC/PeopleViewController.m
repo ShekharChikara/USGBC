@@ -1,23 +1,23 @@
 //
-//  FirstViewController.m
+//  PeopleViewController.m
 //  USGBC
 //
 //  Created by Shekhar Chikara on 04/03/14.
 //  Copyright (c) 2014 USGBC. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "PeopleViewController.h"
 
-@interface FirstViewController ()
+@interface PeopleViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @end
 
-@implementation FirstViewController
+@implementation PeopleViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning

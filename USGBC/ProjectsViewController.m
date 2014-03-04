@@ -1,23 +1,22 @@
 //
-//  SecondViewController.m
+//  ProjectsViewController.m
 //  USGBC
 //
 //  Created by Shekhar Chikara on 04/03/14.
 //  Copyright (c) 2014 USGBC. All rights reserved.
 //
+#import "ProjectsViewController.h"
 
-#import "SecondViewController.h"
-
-@interface SecondViewController ()
+@interface ProjectsViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @end
 
-@implementation SecondViewController
+@implementation ProjectsViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning

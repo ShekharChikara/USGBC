@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  PeopleViewController.h
 //  USGBC
 //
 //  Created by Shekhar Chikara on 04/03/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface PeopleViewController : UITableViewController
 
 @end

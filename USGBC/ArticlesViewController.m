@@ -14,6 +14,9 @@
 #import "HUD.h"
 #import "UIImageView+WebCache.h"
 #import "ArticlesDetailViewController.h"
+#import "UIScrollView+SVInfiniteScrolling.h"
+#import "NSString+HTML.h"
+#import "LoadingTableViewCell.h"
 
 #define credentialsSection 0
 #define cehoursSection 1
@@ -22,6 +25,8 @@
 
 @interface ArticlesViewController () <UITableViewDataSource, UITableViewDelegate> {
     IBOutlet UITableView* table;
+    NSInteger count;
+    ArticlesModel* newArticles;
 }
 
 @end
@@ -31,6 +36,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    count = 1;
     
     //show loader view
     [HUD showUIBlockingIndicatorWithText:@"Loading Articles"];
@@ -82,9 +88,11 @@
         
     ArticleModel* article = self.articles.articles[indexPath.row];
     
-    [cell.articleName setText:article.articleTitle];
+    NSString* title = [article.articleTitle stringByDecodingHTMLEntities];
+    [cell.articleName setText:title];
     
-    [cell.articleBody setText:article.articleSummary];
+    NSString* body = [article.articleSummary stringByDecodingHTMLEntities];
+    [cell.articleBody setText:body];
         
     [cell.articleImage setImageWithURL:[NSURL URLWithString:article.articleImageSmall]
                       placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]];
@@ -114,6 +122,43 @@
         ArticleModel *article = self.articles.articles[indexPath.row];
         [adv setArticle:article];
     } 
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    float endScrolling = scrollView.contentOffset.y + scrollView.frame.size.height;
+    if (endScrolling >= scrollView.contentSize.height)
+    {
+        NSLog(@"Table view bottom reached");
+        static NSString *articleIdentifier   = @"ArticlesLoadingCell";
+        
+        //Show table footer
+        LoadingTableViewCell* cell = (LoadingTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:articleIdentifier];
+        
+        if (cell == nil) {
+            cell = [[LoadingTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                                reuseIdentifier:articleIdentifier];
+            cell.accessoryType = UITableViewCellAccessoryDetailButton;
+        }
+        cell.loadingText.text = @"Loading Articles";
+        [cell.loadingIndicator startAnimating];
+        [table setTableFooterView:cell];
+        [self loadMoreArticles];
+    }
+}
+
+-(void)loadMoreArticles {
+    NSString* articlesUrl = [NSString stringWithFormat:@"http://in.usgbc.org/mobile/services/articlesjson?page=%d",count++];
+    
+    //fetch the next page data
+    newArticles = [[ArticlesModel alloc] initFromURLWithString:articlesUrl
+                                                                   completion:^(JSONModel *model, JSONModelError *err) {
+                                                          
+                                                                       [self.articles.articles addObjectsFromArray:newArticles.articles];
+                                                          
+                                                                       //load the data into table
+                                                                       [table reloadData];
+                                                      }];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

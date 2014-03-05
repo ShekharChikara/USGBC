@@ -12,6 +12,7 @@
 @interface ArticlesDetailViewController : UIViewController
 
 @property (strong, nonatomic) ArticleModel* article;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIImageView* articleImage;
 @property (weak, nonatomic) IBOutlet UILabel* articleTitle;
 @property (weak, nonatomic) IBOutlet UILabel* articlePostedDate;

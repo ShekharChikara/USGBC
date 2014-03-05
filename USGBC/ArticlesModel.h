@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 USGBC. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "JSONModelLib.h"
 #import "ArticleModel.h"
 
 @protocol ArticlesModel
@@ -14,6 +14,6 @@
 
 @interface ArticlesModel : JSONModel
 
-@property (strong, nonatomic) NSArray<ArticleModel>* articles;
+@property (strong, nonatomic) NSMutableArray<ArticleModel>* articles;
 
 @end

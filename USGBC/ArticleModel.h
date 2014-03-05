@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 USGBC. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "JSONModelLib.h"
 
 @protocol ArticleModel
 @end

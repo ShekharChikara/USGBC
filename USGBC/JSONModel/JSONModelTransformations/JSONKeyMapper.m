@@ -1,7 +1,7 @@
 //
 //  JSONKeyMapper.m
 //
-//  @version 0.10.0
+//  @version 0.12.0
 //  @author Marin Todorov, http://www.touch-code-magazine.com
 //
 
@@ -77,11 +77,7 @@
         //initialize
 
         NSMutableDictionary* userToModelMap = [NSMutableDictionary dictionaryWithDictionary: map];
-        NSMutableDictionary* userToJSONMap  = [NSMutableDictionary dictionaryWithCapacity: map.count];
-        
-        for (NSString* key in map) {
-            userToJSONMap[ map[key] ] = key;
-        }
+        NSMutableDictionary* userToJSONMap  = [NSMutableDictionary dictionaryWithObjects:map.allKeys forKeys:map.allValues];
         
         _JSONToModelKeyBlock = ^NSString*(NSString* keyName) {
             NSString* result = [userToModelMap valueForKeyPath: keyName];
@@ -150,6 +146,25 @@
     return [[self alloc] initWithJSONToModelBlock:toModel
                                  modelToJSONBlock:toJSON];
     
+}
+
++(instancetype)mapperFromUpperCaseToLowerCase
+{
+    JSONModelKeyMapBlock toModel = ^ NSString* (NSString* keyName) {
+        NSString*lowercaseString = [keyName lowercaseString];
+        return lowercaseString;
+    };
+
+    JSONModelKeyMapBlock toJSON = ^ NSString* (NSString* keyName) {
+
+        NSString *uppercaseString = [keyName uppercaseString];
+
+        return uppercaseString;
+    };
+
+    return [[self alloc] initWithJSONToModelBlock:toModel
+                                 modelToJSONBlock:toJSON];
+
 }
 
 @end

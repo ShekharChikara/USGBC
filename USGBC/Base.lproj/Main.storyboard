@@ -55,6 +55,31 @@
                                     <segue destination="mZb-k7-0wp" kind="push" identifier="articlesCellSegue" id="zxU-4n-DaU"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArticlesLoadingCell" rowHeight="36" id="1Ma-s8-iSi" customClass="LoadingTableViewCell">
+                                <rect key="frame" x="0.0" y="171" width="320" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Ma-s8-iSi" id="wHC-FG-OfS">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999973" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading Articles..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uar-0t-9Bf">
+                                            <rect key="frame" x="108" y="7" width="142" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" name="selectedTextBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="gme-aS-X34">
+                                            <rect key="frame" x="80" y="8" width="20" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="loadingIndicator" destination="gme-aS-X34" id="6zR-DN-GnN"/>
+                                    <outlet property="loadingText" destination="uar-0t-9Bf" id="CFB-3j-vO1"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="0NB-Us-3m1" id="DLM-l0-eP5"/>
@@ -78,7 +103,7 @@
                         <viewControllerLayoutGuide type="top" id="lbX-Sv-dVO"/>
                         <viewControllerLayoutGuide type="bottom" id="h67-Lt-QqS"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="scU-zv-1vi">
+                    <view key="view" contentMode="scaleToFill" id="scU-zv-1vi" customClass="UIScrollView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -110,6 +135,9 @@
                                 <rect key="frame" x="0.0" y="220" width="320" height="348"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" link="YES"/>
+                                </accessibility>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="13"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -124,6 +152,7 @@
                         <outlet property="articleImage" destination="Qgk-wP-Qh2" id="rWl-np-Emo"/>
                         <outlet property="articlePostedDate" destination="pCN-Cj-xGZ" id="Khf-bN-zpD"/>
                         <outlet property="articleTitle" destination="aeL-5d-ice" id="hHC-t3-1kz"/>
+                        <outlet property="scrollView" destination="scU-zv-1vi" id="0ad-Uj-4yQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0EB-R9-hnV" userLabel="First Responder" sceneMemberID="firstResponder"/>

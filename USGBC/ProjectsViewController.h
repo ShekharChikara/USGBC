@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProjectsModel.h"
 
 @interface ProjectsViewController : UITableViewController
+
+@property (strong, nonatomic) ProjectsModel* projects;
 
 @end

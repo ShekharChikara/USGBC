@@ -18,8 +18,6 @@
 #import "NSString+HTML.h"
 #import "LoadingTableViewCell.h"
 
-#define credentialsSection 0
-#define cehoursSection 1
 #define STRING_LENGTH 25
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
@@ -119,8 +117,9 @@
         NSIndexPath *indexPath = [sender isKindOfClass:[NSIndexPath class]] ? (NSIndexPath*)sender : [self->table indexPathForSelectedRow];
         [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
         ArticlesDetailViewController* adv = [segue destinationViewController];
-        ArticleModel *article = self.articles.articles[indexPath.row];
-        [adv setArticle:article];
+        NSString* index = [NSString stringWithFormat:@"%d",indexPath.row];
+        [adv setArticles:self.articles];
+        [adv setIndex:index];
     } 
 }
 
@@ -148,13 +147,17 @@
 }
 
 -(void)loadMoreArticles {
-    NSString* articlesUrl = [NSString stringWithFormat:@"http://in.usgbc.org/mobile/services/articlesjson?page=%d",count++];
+    NSString* articlesUrl = [NSString stringWithFormat:@"http://in.usgbc.org/mobile/services/articlesjson?page=%ld",(long)count++];
     
     //fetch the next page data
     newArticles = [[ArticlesModel alloc] initFromURLWithString:articlesUrl
                                                                    completion:^(JSONModel *model, JSONModelError *err) {
                                                           
                                                                        [self.articles.articles addObjectsFromArray:newArticles.articles];
+                                                                       
+                                                                       if(newArticles.articles.count < 10) {
+                                                                           [table setTableFooterView:nil];
+                                                                       }
                                                           
                                                                        //load the data into table
                                                                        [table reloadData];

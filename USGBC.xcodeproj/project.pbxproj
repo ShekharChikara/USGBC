@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D347193018C87BEB0037441E /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D347192E18C87BEB0037441E /* logo.png */; };
+		D347193118C87BEB0037441E /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D347192F18C87BEB0037441E /* logo@2x.png */; };
 		D347A6E118C5AD3C00858DDB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D347A6E018C5AD3C00858DDB /* Foundation.framework */; };
 		D347A6E318C5AD3C00858DDB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D347A6E218C5AD3C00858DDB /* CoreGraphics.framework */; };
 		D347A6E518C5AD3C00858DDB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D347A6E418C5AD3C00858DDB /* UIKit.framework */; };
@@ -83,6 +85,11 @@
 		D39B147518C75A850064B1AF /* JSONModel+networking.m in Sources */ = {isa = PBXBuildFile; fileRef = D39B146718C75A850064B1AF /* JSONModel+networking.m */; };
 		D39B147618C75A850064B1AF /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D39B146A18C75A850064B1AF /* JSONKeyMapper.m */; };
 		D39B147718C75A850064B1AF /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = D39B146C18C75A850064B1AF /* JSONValueTransformer.m */; };
+		D3C6003718D2C33500881759 /* ProjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C6003618D2C33500881759 /* ProjectModel.m */; };
+		D3C6003A18D2C38700881759 /* ProjectsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C6003918D2C38700881759 /* ProjectsModel.m */; };
+		D3C6003C18D2C68900881759 /* project_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = D3C6003B18D2C68900881759 /* project_placeholder.png */; };
+		D3C6003F18D2C7C300881759 /* ProjectsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C6003E18D2C7C300881759 /* ProjectsTableViewCell.m */; };
+		D3C6004218D2CC7700881759 /* ProjectsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C6004118D2CC7700881759 /* ProjectsDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +103,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D347192E18C87BEB0037441E /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		D347192F18C87BEB0037441E /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 		D347A6DD18C5AD3C00858DDB /* USGBC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = USGBC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D347A6E018C5AD3C00858DDB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D347A6E218C5AD3C00858DDB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -229,6 +238,15 @@
 		D39B146A18C75A850064B1AF /* JSONKeyMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKeyMapper.m; sourceTree = "<group>"; };
 		D39B146B18C75A850064B1AF /* JSONValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONValueTransformer.h; sourceTree = "<group>"; };
 		D39B146C18C75A850064B1AF /* JSONValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONValueTransformer.m; sourceTree = "<group>"; };
+		D3C6003518D2C33500881759 /* ProjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectModel.h; sourceTree = "<group>"; };
+		D3C6003618D2C33500881759 /* ProjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectModel.m; sourceTree = "<group>"; };
+		D3C6003818D2C38700881759 /* ProjectsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectsModel.h; sourceTree = "<group>"; };
+		D3C6003918D2C38700881759 /* ProjectsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectsModel.m; sourceTree = "<group>"; };
+		D3C6003B18D2C68900881759 /* project_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = project_placeholder.png; sourceTree = "<group>"; };
+		D3C6003D18D2C7C300881759 /* ProjectsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectsTableViewCell.h; sourceTree = "<group>"; };
+		D3C6003E18D2C7C300881759 /* ProjectsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectsTableViewCell.m; sourceTree = "<group>"; };
+		D3C6004018D2CC7700881759 /* ProjectsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectsDetailViewController.h; sourceTree = "<group>"; };
+		D3C6004118D2CC7700881759 /* ProjectsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectsDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -301,9 +319,13 @@
 				D347A6F218C5AD3C00858DDB /* Main.storyboard */,
 				D347A7C818C6011200858DDB /* ArticlesDetailViewController.h */,
 				D347A7C918C6011200858DDB /* ArticlesDetailViewController.m */,
+				D3C6003D18D2C7C300881759 /* ProjectsTableViewCell.h */,
+				D3C6003E18D2C7C300881759 /* ProjectsTableViewCell.m */,
 				D347A6F518C5AD3C00858DDB /* ArticlesViewController.h */,
 				D347A6F618C5AD3C00858DDB /* ArticlesViewController.m */,
 				D347A71818C5B2FE00858DDB /* PeopleViewController.h */,
+				D3C6004018D2CC7700881759 /* ProjectsDetailViewController.h */,
+				D3C6004118D2CC7700881759 /* ProjectsDetailViewController.m */,
 				D347A71918C5B2FE00858DDB /* PeopleViewController.m */,
 				D347A71B18C5B3C000858DDB /* ProjectsViewController.h */,
 				D347A71C18C5B3C000858DDB /* ProjectsViewController.m */,
@@ -349,6 +371,9 @@
 		D347A71E18C5B5BA00858DDB /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D3C6003B18D2C68900881759 /* project_placeholder.png */,
+				D347192E18C87BEB0037441E /* logo.png */,
+				D347192F18C87BEB0037441E /* logo@2x.png */,
 				D347A7C418C5F7B900858DDB /* placeholder.jpg */,
 				D347A7C518C5F7B900858DDB /* placeholder@2x.jpg */,
 				D347A78D18C5E68E00858DDB /* usgbc_logo.png */,
@@ -416,6 +441,10 @@
 				D347A79318C5E6F700858DDB /* ArticlesModel.m */,
 				D347A79518C5EF6D00858DDB /* ArticleModel.h */,
 				D347A79618C5EF6D00858DDB /* ArticleModel.m */,
+				D3C6003518D2C33500881759 /* ProjectModel.h */,
+				D3C6003618D2C33500881759 /* ProjectModel.m */,
+				D3C6003818D2C38700881759 /* ProjectsModel.h */,
+				D3C6003918D2C38700881759 /* ProjectsModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -582,7 +611,7 @@
 		D347A6D518C5AD3C00858DDB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = USGBC;
 				TargetAttributes = {
 					D347A70018C5AD3C00858DDB = {
@@ -619,11 +648,14 @@
 				D347A72618C5B63300858DDB /* articles@2x.png in Resources */,
 				D347A6FC18C5AD3C00858DDB /* Images.xcassets in Resources */,
 				D347A72518C5B63300858DDB /* articles.png in Resources */,
+				D347193018C87BEB0037441E /* logo.png in Resources */,
 				D347A73018C5D0FF00858DDB /* leed-article.jpg in Resources */,
+				D347193118C87BEB0037441E /* logo@2x.png in Resources */,
 				D347A72E18C5B75400858DDB /* projects@2x.png in Resources */,
 				D347A73C18C5E5E900858DDB /* btnCheck@2x.png in Resources */,
 				D347A72D18C5B75400858DDB /* projects.png in Resources */,
 				D347A6EB18C5AD3C00858DDB /* InfoPlist.strings in Resources */,
+				D3C6003C18D2C68900881759 /* project_placeholder.png in Resources */,
 				D347A72918C5B6F700858DDB /* people.png in Resources */,
 				D347A6F418C5AD3C00858DDB /* Main.storyboard in Resources */,
 				D347A79018C5E68E00858DDB /* usgbc_logo@2x.png in Resources */,
@@ -653,6 +685,7 @@
 				D39B147018C75A850064B1AF /* JSONModelClassProperty.m in Sources */,
 				D347A79718C5EF6D00858DDB /* ArticleModel.m in Sources */,
 				D39B147218C75A850064B1AF /* NSArray+JSONModel.m in Sources */,
+				D3C6004218D2CC7700881759 /* ProjectsDetailViewController.m in Sources */,
 				D347A7BD18C5F5DE00858DDB /* SDWebImageManager.m in Sources */,
 				D347A78A18C5E67600858DDB /* SBJsonTokeniser.m in Sources */,
 				D39B147518C75A850064B1AF /* JSONModel+networking.m in Sources */,
@@ -672,9 +705,11 @@
 				D347A7BE18C5F5DE00858DDB /* SDWebImagePrefetcher.m in Sources */,
 				D347A71A18C5B2FE00858DDB /* PeopleViewController.m in Sources */,
 				D347A7C018C5F5DE00858DDB /* UIImage+GIF.m in Sources */,
+				D3C6003F18D2C7C300881759 /* ProjectsTableViewCell.m in Sources */,
 				D347A7B818C5F5DE00858DDB /* SDImageCache.m in Sources */,
 				D39B146F18C75A850064B1AF /* JSONModelArray.m in Sources */,
 				D347A79418C5E6F700858DDB /* ArticlesModel.m in Sources */,
+				D3C6003A18D2C38700881759 /* ProjectsModel.m in Sources */,
 				D347A78818C5E67600858DDB /* SBJsonStreamWriterAccumulator.m in Sources */,
 				D347A6ED18C5AD3C00858DDB /* main.m in Sources */,
 				D347A7BC18C5F5DE00858DDB /* SDWebImageDownloaderOperation.m in Sources */,
@@ -689,6 +724,7 @@
 				D39B146D18C75A850064B1AF /* JSONModel+CoreData.m in Sources */,
 				D347A73E18C5E5E900858DDB /* MBProgressHUD.m in Sources */,
 				D347A78118C5E67600858DDB /* NSObject+SBJson.m in Sources */,
+				D3C6003718D2C33500881759 /* ProjectModel.m in Sources */,
 				D347A7BF18C5F5DE00858DDB /* UIButton+WebCache.m in Sources */,
 				D39B147118C75A850064B1AF /* JSONModelError.m in Sources */,
 				D39B147718C75A850064B1AF /* JSONValueTransformer.m in Sources */,
@@ -753,7 +789,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -792,7 +827,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -850,7 +884,6 @@
 		D347A71618C5AD3C00858DDB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/USGBC.app/USGBC";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -873,7 +906,6 @@
 		D347A71718C5AD3C00858DDB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/USGBC.app/USGBC";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

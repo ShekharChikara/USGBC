@@ -11,6 +11,6 @@
 
 @interface ArticlesViewController : UITableViewController
 
-@property (strong, nonatomic) ArticlesModel* articles;
+@property (nonatomic, retain) ArticlesModel* articles;
 
 @end

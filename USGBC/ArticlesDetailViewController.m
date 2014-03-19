@@ -8,8 +8,10 @@
 
 #import "ArticlesDetailViewController.h"
 #import "UIImageView+WebCache.h"
+#import "NSString+HTML.h"
+#import "ArticleModel.h"
 
-@interface ArticlesDetailViewController () 
+@interface ArticlesDetailViewController () <UIWebViewDelegate>
 
 @end
 
@@ -27,30 +29,65 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //[self.tabBarController.tabBar setHidden:YES];
     
-    [self.scrollView setScrollEnabled:YES];
+    [self setupSwipeGestureRecognizer];
     
-	// Do any additional setup after loading the view.
-    if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-    [self.tabBarController.tabBar setHidden:YES];
-    
-    [self.articleImage setImageWithURL:[NSURL URLWithString:self.article.articleImage]];
-    
-    [self.articleTitle setText:self.article.articleTitle];
-    
-    [self.articleChannel setText:[NSString stringWithFormat:@"In %@",self.article.articleChannel]];
+    [self loadArticleForIndex:self.index];
+}
+
+- (void) loadArticleForIndex:(NSString*)index{
+    int count = [index intValue];
+    ArticleModel* article = self.articles.articles[count];
     
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"MMMM dd, YYYY - h:ma"];
-    NSDate* myDate = [df dateFromString:self.article.articlePostedDate];
+    NSDate* myDate = [df dateFromString:article.articlePostedDate];
     [df setDateFormat:@"dd MMMM, yyyy"];
     NSString *publishedDate = [df stringFromDate:myDate];
     
-    self.articlePostedDate.text = [NSString stringWithFormat:@"Posted on %@",publishedDate];
+    NSString* postedDate = [NSString stringWithFormat:@"Posted on %@",publishedDate];
     
-    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[self.article.articleBody dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
-    [self.articleBody setAttributedText:attributedString];
+    NSString *htmlString = [NSString stringWithFormat:
+                            @"<style>body{margin:0;padding:0} h1{font-size: 18px;} *{font-family:Helvetica;font-size:13px;</style>"
+                            "<img src='%@' width=320px>"
+                            "<div style='padding:10px'><h1>%@</h1>"
+                            "<p>%@</p>"
+                            "<p>In %@<hr></p>"
+                            "%@</div>", article.articleImage, article.articleTitle, postedDate, article.articleChannel, article.articleBody];
+    [self.navigationController setNavigationBarHidden:NO];
+    [self.articleBody loadHTMLString:htmlString baseURL:nil];
+}
+
+- (void) setupSwipeGestureRecognizer {
+    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipedScreen:)];
+    swipeGesture.direction = (UISwipeGestureRecognizerDirectionLeft);
+    [[self view] addGestureRecognizer:swipeGesture];
+    
+    swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipedScreen:)];
+    swipeGesture.direction = (UISwipeGestureRecognizerDirectionRight);
+    [[self view] addGestureRecognizer:swipeGesture]; 
+}
+
+- (void)swipedScreen:(UISwipeGestureRecognizer*)gesture
+{
+    if (gesture.direction == UISwipeGestureRecognizerDirectionLeft) {
+        int count = [self.index intValue];
+        count++;
+        if(count>=1 && count < self.articles.articles.count) {
+            self.index = [NSString stringWithFormat:@"%d",count];
+            [self loadArticleForIndex:self.index];
+        }
+    }
+    if (gesture.direction == UISwipeGestureRecognizerDirectionRight){
+        int count = [self.index intValue];
+        count--;
+        if(count>=0 && count < self.articles.articles.count) {
+            self.index = [NSString stringWithFormat:@"%d",count];
+            [self loadArticleForIndex:self.index];
+        }
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning
